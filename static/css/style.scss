@@ -136,7 +136,9 @@ a:focus {
     object-fit: cover;
   }
 }
-
+.owl-carousel{
+  display: block !important;
+}
 .sub_page {
   .hero_area {
     min-height: auto;

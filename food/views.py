@@ -2,10 +2,17 @@ from django.shortcuts import render
 from .models import *
 # Create your views here.
 
-
 def index(request):
-    return render(request, 'index.html')
+    menus = Menu.objects.all()
+    products = Product.objects.all()
+    sale = Discount.objects.all()
 
+    context = {
+        'menus': menus,
+        'products': products,
+        'sales': sale
+    }
+    return render(request, 'index.html', context)
 
 def about(request):
     return render(request,'about.html')
@@ -13,8 +20,11 @@ def about(request):
 
 def menu(request):
     rows = Menu.objects.all()
+    products = Product.objects.all()
     context = {
-        'rows': rows,
+        'menus': rows,
+        'products': products,
+
     }
     return render(request, 'menu.html',context)
 

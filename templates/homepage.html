@@ -18,7 +18,8 @@
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
-
+  <link rel="stylesheet" href=" {% static 'libs/corousel/owl.carousel.min.css'%} ">
+  <link rel="stylesheet" href=" {% static 'libs/corousel/owl.theme.default.min.css'%} ">
   <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <!-- nice select  -->
@@ -37,6 +38,7 @@
 {% endblock %}
 
  <!-- jQery -->
+
  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
  <!-- popper js -->
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -46,6 +48,7 @@
  <!-- owl slider -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
  </script>
+ <script src="{% static 'libs/corousel/owl.carousel.min.js' %}"></script>
  <!-- isotope js -->
  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
  <!-- nice select -->
@@ -55,5 +58,7 @@
  <!-- Google Map -->
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
  </script>
+ <script src="{% static 'js/main.js' %}"></script>
+
  <!-- End Google Map -->
 </html>

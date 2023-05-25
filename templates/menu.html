@@ -16,8 +16,7 @@
   </div>
 
   <!-- food section -->
-
-  <section class="food_section layout_padding">
+  <section class="food_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
@@ -26,34 +25,34 @@
       </div>
 
       <ul class="filters_menu">
+
+
         <li class="active" data-filter="*">Все</li>
-        <li data-filter=".burger">Бургер</li>
-        <li data-filter=".pizza">Пицца</li>
-        <li data-filter=".pasta">Напидки</li>
-        <li data-filter=".fries">Фри</li>
-        <li data-filter=".kk">kk</li>
+        {% for menu in menus %}
+        <li data-filter=".{{menu.name}}">{{menu.name}}</li>
+        {% endfor %}
+
       </ul>
 
       <div class="filters-content">
         <div class="row grid">
-          {% for item in rows %}
-          <div class="col-sm-6 col-lg-4 all kk">
+          {% for product in products %}
+          <div class="col-sm-6 col-lg-4 all {{product.menuObject}}">
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="{{item.image.url}}" alt="">
+                  <img src="{{product.image.url}}" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    {{ item.name }}
+                    {{product.name}}
                   </h5>
                   <p>
-                    {{ item.description }}
+                   {{product.description}}
                   </p>
                   <div class="options">
-                    <p>{{ item.prace }}</p>
-                    {% endfor %}
                     <h6>
+                     {{product.prace}}
                     </h6>
                     <a href="">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
@@ -114,14 +113,56 @@
               </div>
             </div>
           </div>
+          {% endfor %}
+
+
+
+          </div>
         </div>
-        
       </div>
       <div class="btn-box">
         <a href="">
           Посмотреть больше
         </a>
       </div>
+    </div>
+  </section>
+
+
+
+  <!-- end food section -->
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+        
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'images/about-img.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                We Are Feane
+              </h2>
+            </div>
+            <p>
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
+              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
+              the middle of text. All
+            </p>
+            <a href="">
+              Читать далее
+            </a>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </section>
 

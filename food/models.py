@@ -1,5 +1,7 @@
 from django.db import models
 # Create your models here.
+
+
 class Menu(models.Model):
     name = models.CharField(max_length=100)
 
@@ -15,4 +17,10 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Discount(models.Model):
+    productObject = models.ForeignKey(Product, on_delete=models.CASCADE)
+    sale = models.CharField(max_length=25)
+   
 
