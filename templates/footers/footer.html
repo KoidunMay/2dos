@@ -11,19 +11,25 @@
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Расположение
+                  Расположение: {{ settings.address }}
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Звоните +996 701519090
+                  Звоните: {{ settings.number_one }}
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Звоните: {{ settings.number_two }}
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  elzatsonunbekov@gmail.com
+                  {{ settings.email }}
                 </span>
               </a>
             </div>
@@ -35,7 +41,7 @@
              Экидос
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              Все наши сот сети 
             </p>
             <div class="footer_social">
               <a href="">

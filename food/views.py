@@ -3,14 +3,18 @@ from .models import *
 # Create your views here.
 
 def index(request):
+    settings = Setting.objects.latest('id')
     menus = Menu.objects.all()
     products = Product.objects.all()
     sale = Discount.objects.all()
+    recall = Coment.objects.all()
 
     context = {
+        'settings': settings,
         'menus': menus,
         'products': products,
-        'sales': sale
+        'sales': sale,
+        'recalls': recall,
     }
     return render(request, 'index.html', context)
 
@@ -31,3 +35,8 @@ def menu(request):
 
 def book(request):
     return render(request, 'book.html')
+
+
+
+def users(request):
+   return render(request, 'register.html')

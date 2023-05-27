@@ -1012,3 +1012,8 @@ a:focus {
 /* .owl-carousel{
   display: block !important;
 }  */
+
+.carousel-indicators{
+  display: flex;
+  justify-content: center;
+}

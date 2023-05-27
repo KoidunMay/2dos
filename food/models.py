@@ -1,6 +1,15 @@
 from django.db import models
 # Create your models here.
 
+class Setting(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=155)
+    number_one = models.CharField(max_length=100)
+    number_two = models.CharField(max_length=100)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.name
 
 class Menu(models.Model):
     name = models.CharField(max_length=100)
@@ -24,3 +33,5 @@ class Discount(models.Model):
     sale = models.CharField(max_length=25)
    
 
+class Coment(models.Model):
+    name = models.CharField(max_length=100)
