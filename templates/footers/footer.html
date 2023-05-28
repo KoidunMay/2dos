@@ -37,27 +37,18 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
+            <a href="" class="footer-logo two">
              Экидос
             </a>
             <p>
               Все наши сот сети 
             </p>
             <div class="footer_social">
-              <a href="">
+              <a target="_blank" href="{{ settings.facebook }}">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
+              </a>             
+              <a target="_blank" href="{{ settings.instagram }}">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-pinterest" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -70,7 +61,7 @@
             Каждый день
           </p>
           <p>
-            от 10.00 - до 23.00 
+            {{ settings.schedule }}
           </p>
         </div>
       </div>
