@@ -12,7 +12,8 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('menu/', menu, name='menu'),
     path('book/', book, name='book'),
-    path('register/', users, name='register')
+    path('register/', users, name='register'),
+    path('major/', major, name='major')
 
     
 ]

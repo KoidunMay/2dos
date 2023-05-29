@@ -1,0 +1,226 @@
+{% extends 'homepage.html' %}
+{% load static %}
+
+{% block content %}
+
+
+{% include 'heder/heder.html' %}
+  <style>
+    /* Reset default browser styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* Page layout */
+    body {
+      font-family: Arial, sans-serif;
+      /* padding: 20px; */
+      background-image: url('../static/images/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    /* .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+    } */
+    
+    /* Product list */
+    .product-list {
+      padding: 60px 0;
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+
+    }
+    
+    .product-item {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      width: 30%;
+    }
+    
+    .product-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .product-price {
+      color: #888;
+      margin-bottom: 15px;
+    }
+    
+    .product-description {
+      margin-bottom: 15px;
+    }
+    
+    .product-image {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Favorite Products</h1>
+    
+    <ul class="product-list">
+      <li class="product-item">
+        <h2 class="product-title">Product Name 1</h2>
+        <p class="product-price">$10</p>
+        <img class="product-image" src="https://polaris.company/upload/iblock/30e/2_DSC_8166_%D0%93%D0%B0%D0%BC%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80.JPG" alt="Product Image">
+        <p class="product-description">Product description 1.</p>
+        <input class="input" type="button" value="удалить">
+      </li>
+      <li class="product-item">
+        <h2 class="product-title">Product Name 1</h2>
+        <p class="product-price">$10</p>
+        <img class="product-image" src="https://polaris.company/upload/iblock/30e/2_DSC_8166_%D0%93%D0%B0%D0%BC%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80.JPG" alt="Product Image">
+        <p class="product-description">Product description 1.</p>
+        <input class="input" type="button" value="удалить">
+      </li>
+      <li class="product-item">
+        <h2 class="product-title">Product Name 1</h2>
+        <p class="product-price">$10</p>
+        <img class="product-image" src="https://polaris.company/upload/iblock/30e/2_DSC_8166_%D0%93%D0%B0%D0%BC%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80.JPG" alt="Product Image">
+        <p class="product-description">Product description 1.</p>
+        <input class="input" type="button" value="удалить">
+      </li>
+      <li class="product-item">
+        <h2 class="product-title">Product Name 1</h2>
+        <p class="product-price">$10</p>
+        <img class="product-image" src="https://polaris.company/upload/iblock/30e/2_DSC_8166_%D0%93%D0%B0%D0%BC%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80.JPG" alt="Product Image">
+        <p class="product-description">Product description 1.</p>
+        <input class="input" type="button" value="удалить">
+      </li>
+      
+      <li class="product-item">
+        <h2 class="product-title">Product Name 1</h2>
+        <p class="product-price">$10</p>
+        <img class="product-image" src="https://polaris.company/upload/iblock/30e/2_DSC_8166_%D0%93%D0%B0%D0%BC%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80.JPG" alt="Product Image">
+        <p class="product-description">Product description 1.</p>
+        <input class="input" type="button" value="удалить">
+      </li>
+      <li class="product-item">
+        <h2 class="product-title">Product Name 1</h2>
+        <p class="product-price">$10</p>
+        <img class="product-image" src="https://polaris.company/upload/iblock/30e/2_DSC_8166_%D0%93%D0%B0%D0%BC%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80.JPG" alt="Product Image">
+        <p class="product-description">Product description 1.</p>
+        <input class="input" type="button" value="удалить">
+      </li>
+      <li class="product-item">
+        <h2 class="product-title">Product Name 1</h2>
+        <p class="product-price">$10</p>
+        <img class="product-image" src="https://polaris.company/upload/iblock/30e/2_DSC_8166_%D0%93%D0%B0%D0%BC%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80.JPG" alt="Product Image">
+        <p class="product-description">Product description 1.</p>
+        <input class="input" type="button" value="удалить">
+      </li>
+      <li class="product-item">
+        <h2 class="product-title">Product Name 1</h2>
+        <p class="product-price">$10</p>
+        <img class="product-image" src="https://polaris.company/upload/iblock/30e/2_DSC_8166_%D0%93%D0%B0%D0%BC%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80.JPG" alt="Product Image">
+        <p class="product-description">Product description 1.</p>
+        <input class="input" type="button" value="удалить">
+      </li>
+      <li class="product-item">
+        <h2 class="product-title">Product Name 1</h2>
+        <p class="product-price">$10</p>
+        <img class="product-image" src="https://polaris.company/upload/iblock/30e/2_DSC_8166_%D0%93%D0%B0%D0%BC%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80.JPG" alt="Product Image">
+        <p class="product-description">Product description 1.</p>
+        <input class="input" type="button" value="удалить">
+      </li>
+      <li class="product-item">
+        <h2 class="product-title">Product Name 1</h2>
+        <p class="product-price">$10</p>
+        <img class="product-image" src="https://polaris.company/upload/iblock/30e/2_DSC_8166_%D0%93%D0%B0%D0%BC%D0%B1%D1%83%D1%80%D0%B3%D0%B5%D1%80.JPG" alt="Product Image">
+        <p class="product-description">Product description 1.</p>
+        <input class="input" type="button" value="удалить">
+      </li>
+   
+  <style>
+    /* Стили для рамки */
+    .purchase-frame {
+      border: 2px solid #000;
+      padding: 20px;
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    /* Стили для заголовка */
+    .purchase-frame h2 {
+      text-align: center;
+      font-size: 24px;
+    }
+
+    /* Стили для формы */
+    .purchase-frame form {
+      margin-top: 20px;
+    }
+
+    .purchase-frame label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .purchase-frame input[type="text"],
+    .purchase-frame input[type="email"],
+    .purchase-frame select {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    .purchase-frame input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="purchase-frame">
+    <h2>Покупка товаров</h2>
+    <form>
+      <label for="name">Имя:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="product">Выберите товар:</label>
+      <select id="product" name="product">
+        <option value="product1">Товар 1</option>
+        <option value="product2">Товар 2</option>
+        <option value="product3">Товар 3</option>
+      </select>
+
+      <input type="submit" value="Купить">
+    </form>
+  </div>
+</body>
+</html>
+
+    </ul>
+  </div>
+  {% include 'footers/footer.html' %}
+</body>
+</html>
+{% endblock %}

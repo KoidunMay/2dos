@@ -9,9 +9,8 @@ def index(request):
     products = Product.objects.all()
     sale = Discount.objects.all()
     recall = Coment.objects.all()
-
-    sliders = Product.objects.filter(menuObject=choice(menus))
     
+    sliders = Product.objects.filter(menuObject=choice(menus)).order_by('?')
     context = {
         'settings': settings,
         'menus': menus,
@@ -58,3 +57,8 @@ def book(request):
 
 def users(request):
    return render(request, 'register.html')
+
+
+
+def major(request):
+   return render(request, 'major.html')

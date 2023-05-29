@@ -4,6 +4,8 @@
 {% block content %}
 
 
+{% include 'heder/heder.html' %}
+
   <style>
     body {
       background-image: url('../static/images/hero-bg.jpg');
@@ -17,9 +19,9 @@
       height: 100vh;
     }
     
-    .container {
+    .transition {
       width: 300px;
-      margin: 0 auto;
+      margin: 100px auto;
       padding: 20px;
       background-color: white;
       border-radius: 5px;
@@ -32,7 +34,11 @@
     #form{
       display: none;
     }
+    #open{
+      cursor: pointer;
+    }
     #close{
+      cursor: pointer;
       display: none;
     }
     .form-group {
@@ -68,36 +74,43 @@
       .container *{
       transition: all .3s;
     }
+    .transition{
+      margin-top: 100px;
+      /* min-height: 100vh; */
+    }
   </style>
   
 </head>
 <body>
-  <div class="container transition">
-    <h2>Register</h2>
-    <p id="open">open</p>
-    <p id="close">close</p>
-    <form id="form">
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone:</label>
-        <input type="phone" name="phone" required>
-      </div>
-      <div class="form-group">
-        <button type="submit">Register</button>
-      </div>
-    </form>
+  <div style="min-height: 100vh;">
+    <div class="container transition">
+      <h2>Register</h2>
+      <p id="open">open</p>
+      <p id="close">close</p>
+      <form id="form">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Register</button>
+        </div>
+      </form>
+    </div>
   </div>
+ 
   <script>
     let open = document.getElementById('open');
     let close = document.getElementById('close');
@@ -113,4 +126,6 @@
       form.style.display = 'none'
     }
   </script>
+  {% include 'footers/footer.html' %}
+
       {% endblock %}
