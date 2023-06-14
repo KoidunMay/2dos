@@ -82,25 +82,25 @@ flex: 1;
 
   </style>
 </head>
-<div>
+<div style="height: calc(100vh - 200px);">
   <div class="container">
-    <h1>Favorite Products</h1>
-    
-    {% for item in products %}
-    <ul class="product-list">
-      <li class="product-item">
-        <h2 class="product-title">{{ item.productObject.name }}</h2>
-        <p class="product-price">{{ item.productObject.prise }}</p>
-        <img class="product-image" src="{{ item.productObject.image.url }}" alt="Product Image">
-        <p class="product-description">{{ item.productObject.description }} Количество-<span id="count{{item.id}}" >1</span></p>
-
-        <input class="input" onclick="inc('-',{{item.id}})" type="button" value="-">
-        <input class="input" onclick="inc('+',{{item.id}})" type="button" value="+">
-        <input class="input"   type="button" value="удалить">
-      </li> 
-
-    </ul>
-    {% endfor %}
+    <div>
+      <h1>Favorite Products</h1>
+      {% for item in products %}
+      <ul class="product-list">
+        <li class="product-item">
+          <h2 class="product-title">{{ item.name }}</h2>
+          <p class="product-price">{{ item.productObject.prise }}</p>
+          <img class="product-image" src="{{ item.productObject.image.url }}" alt="Product Image">
+          <p class="product-description">{{ item.productObject.description }} Количество-<span id="count{{item.id}}" >1</span></p>
+          <!-- <input class="input" onclick="inc('-',{{item.id}})" type="button" value="-">
+          <input class="input" onclick="inc('+',{{item.id}})" type="button" value="+"> -->
+          <input class="input"   type="button" value="удалить">
+        </li> 
+  
+      </ul>
+      {% endfor %}
+    </div>
   </div>
 </div>
   {% include 'footers/footer.html' %}

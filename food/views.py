@@ -56,8 +56,10 @@ def menu(request):
 
 def book(request):
     settings = Setting.objects.latest('id')
+    stol =  Stol.objects.all()
     context = {
         'settings': settings,
+        'rows': stol
 
     }
     return render(request, 'book.html',context)
@@ -67,20 +69,14 @@ def book(request):
 
 
 def food_order(request,id):
-
     ip = getIp(request)
-
     today_min = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
     today_max = datetime.datetime.combine(datetime.date.today(), datetime.time.max)
-    
     try:
         currentChek = Cheks.objects.get(humanIp=ip, date__range=(today_min, today_max), isPay=False)
-
     except:
         currentChek = Cheks.objects.create(humanIp=ip)
         currentChek.save()
-        
-
     settings = Setting.objects.latest('id')
     product = Product.objects.get(id=id)
     menus = Menu.objects.all()
@@ -99,8 +95,6 @@ def food_order(request,id):
         products.save()
 
     productList = CheksDetail.objects.filter(cheksObject=currentChek) 
-
-
     context = {
         'settings' : settings,
         'products' : productList,
@@ -143,8 +137,9 @@ def bron(request):
         name = request.POST.get('name')
         nomer = request.POST.get('nomer')
         count = request.POST.get('count')
+        stol = request.POST.get('stol')
         date = request.POST.get('date')
         
-        newRow = Bron.objects.create(name = name, phone = nomer, haumany = count, dait = date)
+        newRow = Bron.objects.create(name = name, phone = nomer, haumany = count, dait = date, stolObject_id=stol)
         newRow.save()
     return index(request)

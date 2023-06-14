@@ -27,54 +27,21 @@
             <form action="{% url 'bron'%}" method="post">
             {% csrf_token %}
               <div>
-                <input name="name" type="text" class="form-control" placeholder="Ваше имя" />
+                <input name="name" type="text" class="form-control" required placeholder="Ваше имя" />
               </div>
               <div>
-                <input name="nomer" type="text" class="form-control" placeholder="Номер телефона" />
+                <input name="nomer" type="text" class="form-control" required placeholder="Номер телефона" />
               </div>
-              <select class="form-control nice-select wide">
-                <option value="" disabled selected>
-                  Номер стола?
-                </option>
-                <option value="">
-                  1 - стол
+              <select name="stol" class="form-control nice-select wide" required>
+                <option value="" disabled selected>Выбрать стол</option>
+                {%for item in rows%}
+                <option value="{{item.id}}">
+                  {{item.nomer}}
                  </option>
-                <option value="">
-                  2 - стол
-                </option>
-                <option value="">
-                  3 - стол
-                </option>
-                <option value="">
-                  4 - стол
-                </option>
-                <option value="">
-                  5 - стол
-                </option>
-                <option value="">
-                  6 - стол
-                </option>
-                    <option value="">
-                  7 - стол
-                    </option>
-                  <option value="">
-                      8 - стол
-                  </option>
-                   <option value="">
-                    9 - стол
-                   </option>
-                   <option value="">
-                    10 - стол
-                   </option>
-                   <option value="">
-                    11 - стол
-                   </option>
-                   <option value="">
-                    12 - стол
-                   </option>
+                {%endfor%}
               </select>
               <div>
-                <input name="count" type="number" class="form-control">
+                <input name="count" type="number" required class="form-control">
                 <!-- <select class="form-control nice-select wide">
                   <option value="" disabled selected>
                     Сколько человек?
@@ -97,7 +64,7 @@
                 </select> -->
               </div>
               <div>
-                <input name="date" type="date" class="form-control">
+                <input name="date" type="date" required class="form-control">
               </div>
               <div class="btn_box">
                 <button>
