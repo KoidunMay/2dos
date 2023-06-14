@@ -89,12 +89,12 @@ flex: 1;
       {% for item in products %}
       <ul class="product-list">
         <li class="product-item">
-          <h2 class="product-title">{{ item.name }}</h2>
-          <p class="product-price">{{ item.productObject.prise }}</p>
-          <img class="product-image" src="{{ item.productObject.image.url }}" alt="Product Image">
+          <h2 class="product-title">{{ item.productList.name }}</h2>
+          <p class="product-price">{{ item.productList.prise }}</p>
+          <img class="product-image" src="{{ item.productList.image.url }}" alt="Product Image">
           <p class="product-description">{{ item.productObject.description }} Количество-<span id="count{{item.id}}" >1</span></p>
-          <!-- <input class="input" onclick="inc('-',{{item.id}})" type="button" value="-">
-          <input class="input" onclick="inc('+',{{item.id}})" type="button" value="+"> -->
+          <input class="input" onclick="inc('-',{{item.id}})" type="button" value="-">
+          <input class="input" onclick="inc('+',{{item.id}})" type="button" value="+">
           <input class="input"   type="button" value="удалить">
         </li> 
   

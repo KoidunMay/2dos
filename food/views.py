@@ -78,22 +78,19 @@ def food_order(request,id):
         currentChek = Cheks.objects.create(humanIp=ip)
         currentChek.save()
     settings = Setting.objects.latest('id')
-    product = Product.objects.get(id=id)
+    products = Product.objects.get(id=id)
     menus = Menu.objects.all()
     sliders = Product.objects.filter(menuObject=choice(menus)).order_by('?')
-
     try:
         pass
         # products = CheksDetail.objects.filter(productObject=product, cheksObject=currentChek).first()
         # products.productCount = products.productCount + 0.5
         # products.totalSum += product.prise
         # products.save()
-
     except Exception as e:
         print(e)
-        products = CheksDetail.objects.create(productObject=product, cheksObject=currentChek, totalSum=product.prise, productCount=1.0)
+        products = CheksDetail.objects.create(productObject=products, cheksObject=currentChek, totalSum=products.prise, productCount=1.0)
         products.save()
-
     productList = CheksDetail.objects.filter(cheksObject=currentChek) 
     context = {
         'settings' : settings,
