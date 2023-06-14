@@ -21,7 +21,7 @@
       {% for item in about %}
       <div class="row">
         <div class="col-md-6 ">
-          <div class="img-box" style="margin-bottom: 10px; width: 100px;">
+          <div class="img-box" style="margin-bottom: 10px; width: 90%;">
             <img src="{{item.ProductObject.image.url}}" alt="">
           </div>
         </div>
@@ -29,13 +29,13 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                {{item.ProductObject.name}}
+                {{item.name}}
               </h2>
             </div>
             <p>
-          <!-- {{item.ProductObject.description}} -->
-          {{item.sostav}}
-          {{item.gram}}
+          {{item.description}}
+          <!-- {{item.sostav}}
+          {{item.gram}} -->
             </p>
             <a href="">
               Читать далее

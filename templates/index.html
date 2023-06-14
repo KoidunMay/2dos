@@ -20,7 +20,7 @@
                 <div class="col-lg-12" style="height: 100vh; position: relative;">
                   <div class="bg-box" style="height: 100vh;">
                     <img src="{{slider.image.url}}" style="height: 100%; width: 100%; position: absolute; z-index: -1;" alt="">
-                  <div class="detail-box  container" style="position: relative; z-index: 999; height: 100vh; display: flex; justify-content: flex-start; align-items: center;">
+                  <div class="detail-box  container" style="position: relative; z-index: 9; height: 100vh; display: flex; justify-content: flex-start; align-items: center;">
                       <div class="col-lg-6">
                         <h1>
                           {{slider.name}} 
@@ -28,8 +28,8 @@
                         <p>
                          {{slider.description}}
                         </p>
-                        <div class="btn-box">
-                          <a href="" class="btn1">
+                        <div class="btn-box" style="position: relative; z-index: 10000;">
+                          <a class="btn1" href="{% url 'food_order' slider.id %}" >
                             Заказать сейчас
                           </a>
                         </div>
@@ -40,8 +40,8 @@
           </div>
         </div>
         {% endfor %}
-        <div class="container">
-          <ol style="display: flex; justify-content: center; align-items: flex-end; position: relative; bottom: 0px; z-index: 9999; height: 100vh; top: -70px;" class="carousel-indicators">
+        <div class="container" style="position: relative;">
+          <ol style="display: flex; justify-content: center; align-items: flex-end; position: absolute;z-index: 9;bottom:-700px;" class="carousel-indicators">
             <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
             {% for item in numbers %}
             <li data-target="#customCarousel1" data-slide-to="{{item}}"></li>
@@ -49,7 +49,15 @@
           </ol>
         </div>
       </div>
-
+      <button style="background-color: rgba(0, 0, 0, 0.025); border: none;" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span style="color: yellow;"class="visually-hidden">Previous</span>
+      </button>
+      <button style="background-color: rgba(0, 0, 0, 0.025); border: none;" class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span style="color: yellow;" class="visually-hidden">Next</span>
+      </button>
+      </div>
     </section>
     <!-- end slider section -->
   </div>
@@ -82,7 +90,7 @@
                   <h6>
                     <span>{{sale.sale}}</span> Скидка
                   </h6>
-                  <a href="">
+                  <a href="{% url 'food_order' sale.productObject.id %}">
                     Заказать сейчас <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                       <g>
                         <g>
@@ -171,7 +179,8 @@
     
       <div class="filters-content">
         <div class="row grid">
-          {% for product in products|slice:":6" %}
+          {% for product in products %}
+          <!-- |slice:":6" -->
           <div class="col-sm-6 col-lg-4 all {{product.menuObject}}">
             <div class="box">
               <div>
@@ -179,9 +188,11 @@
                   <img style="width: 100%; height: 100%; object-fit: cover;" src="{{product.image.url}}" alt="">
                 </div>
                 <div class="detail-box">
-                  <h5>
-                    {{product.name}}
-                  </h5>
+                  <a href="{% url 'food_order' product.id %}" style="text-decoration: none; color: whitesmoke;">
+                    <h5>
+                      {{product.name}}
+                    </h5>
+                  </a>
                   <p>
                     {{product.description}}
                   </p>
@@ -190,7 +201,7 @@
                       {{product.prise}}
                     </h6>
                     {% if not product.melting %}
-                    <a href="">
+                    <a href="{% url 'food_order' product.id %}">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -266,8 +277,8 @@
 
   <!-- end about section -->
 
-  <!-- book section -->
-  <section class="book_section layout_padding">
+  <!--book section -->
+  <!-- <section class="book_section layout_padding">
     <div class="container">
       <div class="heading_container">
         <h2>
@@ -324,11 +335,11 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- end book section -->
 
   <!-- client section -->
-<!-- 
+
   <section class="client_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center psudo_white_primary mb_45">
@@ -377,7 +388,7 @@
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <!-- end client section -->
 

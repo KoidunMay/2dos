@@ -4,7 +4,6 @@
 
 {% block content %}
 <body class="sub_page">
-
   <div class="hero_area">
     <div class="bg-box">
       <img src="{% static 'images/hero-bg.jpg' %}" alt="">
@@ -14,7 +13,7 @@
     <!-- end header section -->
   </div>
 
-  <!-- book section -->
+ 
   <section class="book_section layout_padding">
     <div class="container">
       <div class="heading_container">
@@ -25,12 +24,13 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form_container">
-            <form action="">
+            <form action="{% url 'bron'%}" method="post">
+            {% csrf_token %}
               <div>
-                <input type="text" class="form-control" placeholder="Ваше имя" />
+                <input name="name" type="text" class="form-control" placeholder="Ваше имя" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Номер телефона" />
+                <input name="nomer" type="text" class="form-control" placeholder="Номер телефона" />
               </div>
               <select class="form-control nice-select wide">
                 <option value="" disabled selected>
@@ -74,7 +74,8 @@
                    </option>
               </select>
               <div>
-                <select class="form-control nice-select wide">
+                <input name="count" type="number" class="form-control">
+                <!-- <select class="form-control nice-select wide">
                   <option value="" disabled selected>
                     Сколько человек?
                   </option>
@@ -93,10 +94,10 @@
                   <option value="">
                     6
                   </option>
-                </select>
+                </select> -->
               </div>
               <div>
-                <input type="date" class="form-control">
+                <input name="date" type="date" class="form-control">
               </div>
               <div class="btn_box">
                 <button>

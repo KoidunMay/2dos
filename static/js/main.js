@@ -38,4 +38,24 @@ $(document).ready(function () {
 //     nav.classList.add('active')
 //   })
 // })
-console.log('dsa');
+
+
+
+function inc(com, id) {
+  if (com=='+'){
+    let num = document.getElementById('count'+id)
+    let count = parseInt(num.textContent)
+    let b = count +1
+    num.innerHTML=String(b)
+    
+  }
+  else {
+    let num = document.getElementById('count'+id)
+    let count = parseInt(num.textContent)
+    if (count == 0){
+      return
+    }
+    let b = count -1
+    num.innerHTML=String(b)
+  }
+}

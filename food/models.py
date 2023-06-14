@@ -1,5 +1,9 @@
 from django.db import models
+from mptt.models import MPTTModel
+from ckeditor.fields import RichTextField
+
 # Create your models here.
+
 
 
 
@@ -26,9 +30,9 @@ class Product(models.Model):
     menuObject = models.ForeignKey(Menu, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     description = models.TextField(null=True)
-    prise = models.CharField(max_length=55)
     image = models.ImageField(upload_to="image/") 
     melting = models.BooleanField(default=False)
+    prise = models.FloatField()
 
     def __str__(self):
         return self.name
@@ -36,12 +40,25 @@ class Product(models.Model):
 class SliderProduct(models.Model):
     menuObject = models.ForeignKey(Menu, on_delete=models.CASCADE)
 
+# кылышкерек
+class Recipe(models.Model):
+    name = models.CharField(max_length=100)
+    servers = models.CharField(max_length=100)
+    prep_time = models.PositiveIntegerField(default=0)
+    cooc_time = models.PositiveIntegerField(default=0)
+    ingredients = models.TextField()
+    directions = models.TextField()
+    image = models.ImageField()
+    post = models.ForeignKey(
+        Product,
+        related_name="recipe",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
 
-class Aboutfoot(models.Model):
-    ProductObject = models.ForeignKey(Product,on_delete=models.CASCADE)
-    sostav = models.CharField(max_length=255)
-    gram = models.CharField(max_length=255)
-
+    def __str__(self):
+        return self.name
     
 
 class Discount(models.Model):
@@ -49,5 +66,37 @@ class Discount(models.Model):
     sale = models.CharField(max_length=25)
    
 
+
+class Cheks(models.Model):
+    humanIp = models.CharField(max_length=100)
+    address = models.CharField(max_length=100, null=True, blank=True)
+    nomer = models.CharField(max_length=100, null=True, blank=True)
+    date = models.DateField(auto_now_add=True, null=True, blank=True)
+    isPay = models.BooleanField(default=False, null=True, blank=True)
+
+class CheksDetail(models.Model):
+    productObject = models.ForeignKey(Product, on_delete = models.CASCADE, null=True, blank=True)
+    totalSum = models.FloatField(null=True, blank=True)
+    productCount = models.FloatField(default=1.0, null=True, blank=True)
+    cheksObject = models.ForeignKey(Cheks, on_delete=models.CASCADE, null=True, blank=True)
+
+
+#кылышкерек
 class Coment(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=100)
+    website  = models.CharField(max_length=150)
+    message = models.TextField(max_length=500)
+    post = models.ForeignKey(Product, related_name="comment", on_delete=models.CASCADE,)
+
+
+class Stol(models.Model):
+    nomer = models.CharField(max_length=20)
+
+class Bron(models.Model):
+    name = models.CharField(max_length=50)
+    phone = models.CharField(max_length=20)
+    haumany = models.CharField(max_length=15)
+    dait = models.CharField(max_length=33)
+    stolObject = models.ForeignKey(Stol, on_delete=models.CASCADE, blank=True, null=True)
+
