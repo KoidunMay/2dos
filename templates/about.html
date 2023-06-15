@@ -18,22 +18,22 @@
 
   <section class="about_section layout_padding">
     <div class="container  ">
-      {% for item in about %}
+      {% for Recipe in about %}
       <div class="row">
         <div class="col-md-6 ">
           <div class="img-box" style="margin-bottom: 10px; width: 90%;">
-            <img src="{{item.ProductObject.image.url}}" alt="">
+            <img src="{{Recipe.ProductObject.image.url}}" alt="">
           </div>
         </div>
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                {{item.name}}
+                {{Recipe.name}}
               </h2>
             </div>
             <p>
-          {{item.description}}
+          {{Recipe.description}}
           <!-- {{item.sostav}}
           {{item.gram}} -->
             </p>

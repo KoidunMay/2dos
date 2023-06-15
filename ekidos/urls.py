@@ -18,6 +18,16 @@ urlpatterns = [
     path('search/',search,name='search'),
     path('cardpay/',cardpay,name='cardpay'),
     path('bron/',bron,name='bron'),
+
+    
+]
+
+from django.urls import path
+from .views import recipe_list, recipe_detail
+
+urlpatterns = [
+    path('recipes/', recipe_list, name='recipe_list'),
+    path('recipes/<int:recipe_id>/', recipe_detail, name='recipe_detail'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

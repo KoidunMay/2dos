@@ -86,7 +86,6 @@ flex: 1;
   <div class="container">
     <div>
       <h1>Favorite Products</h1>
-      {% for item in products %}
       <ul class="product-list">
         <li class="product-item">
           <h2 class="product-title">{{ item.productList.name }}</h2>
@@ -96,10 +95,8 @@ flex: 1;
           <input class="input" onclick="inc('-',{{item.id}})" type="button" value="-">
           <input class="input" onclick="inc('+',{{item.id}})" type="button" value="+">
           <input class="input"   type="button" value="удалить">
-        </li> 
-  
+        </li>
       </ul>
-      {% endfor %}
     </div>
   </div>
 </div>

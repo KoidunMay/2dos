@@ -41,24 +41,46 @@ class SliderProduct(models.Model):
     menuObject = models.ForeignKey(Menu, on_delete=models.CASCADE)
 
 # кылышкерек
+from django.db import models
+from django.contrib.auth.models import User
+
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
     servers = models.CharField(max_length=100)
     prep_time = models.PositiveIntegerField(default=0)
-    cooc_time = models.PositiveIntegerField(default=0)
+    cook_time = models.PositiveIntegerField(default=0)
     ingredients = models.TextField()
     directions = models.TextField()
-    image = models.ImageField()
-    post = models.ForeignKey(
-        Product,
-        related_name="recipe",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True
-    )
+    image = models.ImageField(upload_to='recipes/')
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
+
+    @property
+    def total_time(self):
+        return self.prep_time + self.cook_time
+
+    @property
+    def formatted_prep_time(self):
+        hours = self.prep_time // 60
+        minutes = self.prep_time % 60
+        return f"{hours}h {minutes}m"
+
+    @property
+    def formatted_cook_time(self):
+        hours = self.cook_time // 60
+        minutes = self.cook_time % 60
+        return f"{hours}h {minutes}m"
+
+    @property
+    def formatted_total_time(self):
+        hours = self.total_time // 60
+        minutes = self.total_time % 60
+        return f"{hours}h {minutes}m"
+
     
 
 class Discount(models.Model):
@@ -82,12 +104,24 @@ class CheksDetail(models.Model):
 
 
 #кылышкерек
-class Coment(models.Model):
-    name = models.CharField(max_length=50)
-    email = models.CharField(max_length=100)
-    website  = models.CharField(max_length=150)
-    message = models.TextField(max_length=500)
-    post = models.ForeignKey(Product, related_name="comment", on_delete=models.CASCADE,)
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Post, Comment
+from .forms import CommentForm
+
+def add_comment(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.author = request.user
+            comment.save()
+            return redirect('post_detail', post_id=post.id)
+    else:
+        form = CommentForm()
+    return render(request, 'add_comment.html', {'form': form, 'post': post})
+
 
 
 class Stol(models.Model):

@@ -5,6 +5,18 @@ import datetime
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_protect
 
+from django.shortcuts import render, get_object_or_404
+from .models import Recipe
+
+def recipe_list(request):
+    recipes = Recipe.objects.all()
+    return render(request, 'recipe_list.html', {'recipes': recipes})
+
+def recipe_detail(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    return render(request, 'recipe_detail.html', {'recipe': recipe})
+
+
 def index(request):
     settings = Setting.objects.latest('id')
     menus = Menu.objects.all()
@@ -94,7 +106,7 @@ def food_order(request,id):
     productList = CheksDetail.objects.filter(cheksObject=currentChek) 
     context = {
         'settings' : settings,
-        'products' : productList,
+        'product' : productList,
         'numbers': range(1,len(sliders)),
     }
     return render(request,'major.html',context)
@@ -140,3 +152,13 @@ def bron(request):
         newRow = Bron.objects.create(name = name, phone = nomer, haumany = count, dait = date, stolObject_id=stol)
         newRow.save()
     return index(request)
+
+
+
+def recipe_list(request):
+    recipes = Recipe.objects.all()
+    return render(request, 'recipe_list.html', {'recipes': recipes})
+
+def recipe_detail(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    return render(request, 'recipe_detail.html', {'recipe': recipe})
